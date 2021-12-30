@@ -27,6 +27,7 @@ export const SearchScreen = () => {
 
    const hadleSearch = (event)=>{
       event.preventDefault();
+     
       navigate(`?q=${ searchText }`);
       
    }

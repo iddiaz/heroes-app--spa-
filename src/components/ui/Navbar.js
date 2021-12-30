@@ -1,19 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../../auth/authContext';
+import { types } from '../../types/types';
 
 
 export const Navbar = () => {
 
     const navigate = useNavigate();
 
+    const { dispatch } = useContext(AuthContext)
+
    const hadleLogout = ()=>{
-      console.log('TODO');
-      console.log('logout');
-      console.log('navigate', navigate);
-      navigate('/login', {
-        replace: true // remplaza la historia para que no sea posible volver al url anterior (login)
-     })
+
+    // const action = {
+    //     type: types.logout,        
+    // }
+
+    dispatch({ type: types.logout });
+
+    navigate('/login', {
+    replace: true // remplaza la historia para que no sea posible volver al url anterior (login)
+    })
+
    }
+
+   const {user} = useContext(AuthContext)
 
 
 
@@ -55,7 +66,7 @@ export const Navbar = () => {
 
             <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
                 <ul className="navbar-nav ml-auto">
-                   <span className='nav-item nav-link text-info'>Ivan Diaz</span>
+                   <span className='nav-item nav-link text-info'>{user.name} </span>
                     <button                      
                         className="nav-item nav-link btn"
                         onClick={hadleLogout}                         
