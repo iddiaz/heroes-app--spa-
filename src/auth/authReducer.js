@@ -6,16 +6,6 @@ import { types } from './../types/types';
 //    logged: true
 // }
 
-// const loginAction = {
-
-//    type: types.login,
-//    payload: {
-//       name: 'ivan',
-//       email: 'correo@correo.com'
-//    }
-
-// }
-
 
 export const authReducer =( state = {}, action )=>{
    switch ( action.type ) {

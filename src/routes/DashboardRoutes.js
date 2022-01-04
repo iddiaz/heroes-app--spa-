@@ -5,6 +5,7 @@ import { MarvelScreen } from './../components/marvel/MarvelScreen';
 import { DcScreen } from './../components/dc/DcScreen';
 import { SearchScreen } from './../components/search/SearchScreen';
 import { HeroScreen } from '../components/hero/HeroScreen';
+
 export const DashboardRoutes = () => {
    return (
       <>
