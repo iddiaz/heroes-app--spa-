@@ -1,4 +1,7 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+
+// const imagePath = `/assets/heroes/${id}.jpg`;
+import { heroImages } from "../../helpers/heroImages";
 
 export const HeroCard = ( {
    id,
@@ -9,7 +12,6 @@ export const HeroCard = ( {
    characters,
 } ) => {
 
-   const imagePath = `/assets/heroes/${id}.jpg`
 
 
    return (     
@@ -18,7 +20,9 @@ export const HeroCard = ( {
          <div className="card">
             <div className="row no-gutters">
                <div className="col-4">
-                  <img src={imagePath} className="card-img" alt={superhero} />
+                  {/* carga imagenes desde la carpeta public
+                  <img src={imagePath} className="card-img" alt={superhero} /> */}
+                  <img src={ heroImages(`./${id}.jpg`) } className="card-img" alt={superhero} />
                </div>
                <div className="col-8">
                   <div className="card-body">

@@ -2,7 +2,9 @@ import { useMemo } from "react";
 import { useParams, Navigate, useNavigate } from "react-router-dom"
 import { getHeroById } from './../../selectors/getHeroById';
 
-
+// import batman from '../../assets/heroes/dc-batman.jpg'; //importacion recurso estático
+// const heroImages = require.context('../../assets/heroes', true); //creando contexto estatico con webpack
+import { heroImages } from "../../helpers/heroImages";
 
 export const HeroScreen = () => {
 
@@ -31,7 +33,10 @@ export const HeroScreen = () => {
    return (
       <div className="row mt-5" >
          <div className="col-4">
-            <img src={ imagePath } alt={hero.superhero} className="img-tumbnail img-fluid" />
+            {/* <img src={ batman } con un import
+             alt={hero.superhero} className="img-tumbnail img-fluid" /> */}
+            <img src={ heroImages(`./${id}.jpg`) } alt={hero.superhero} className="img-tumbnail img-fluid" />
+            {/* <img src={ imagePath } alt={hero.superhero} className="img-tumbnail img-fluid" /> */}
          </div>
          <div className="col-7">
             <h3>{hero.superhero}</h3>
